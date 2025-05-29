@@ -40,7 +40,7 @@ ssh-copy-id dmistry@192.168.1.24
 ssh-copy-id dmistry@192.168.1.25
 ```
 
-Next we deploy a k3s sever node to the first node
+Next we deploy a k3s server node to the first node
 
 ``` shell linenums="1"
 k3sup install --ip 192.168.1.21 \
@@ -81,7 +81,7 @@ kube-vip manifest daemonset \
 --taint \
 --inCluster | tee /var/lib/rancher/k3s/server/manifests/kube-vip.yaml
 ```
-Logout of first server node and join serves node 2 and server node 3
+Logout of first server node and join server node 2 and server node 3
 
 ``` shell title="Server Node 2"
 k3sup join --ip 192.168.1.22 --user dmistry --sudo --k3s-channel stable --server --server-ip 192.168.1.20 --server-user dmistry --sudo --k3s-extra-args "--disable traefik  --disable servicelb --node-ip=192.168.1.22"
